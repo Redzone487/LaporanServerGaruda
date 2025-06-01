@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Report Bug, Player, atau Admin SAMP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  /* Reset and base */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Poppins', sans-serif;
+    color: #3a3053;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .container {
+    background: #fff;
+    max-width: 520px;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 25px 40px rgba(50,50,93,.1), 0 10px 20px rgba(0,0,0,.07);
+    padding: 48px 36px 56px;
+  }
+
+  h1 {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.9rem;
+    color: #5e3ca9;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+  }
+
+  .catalogue-info {
+    background: #f7f5fb;
+    border-left: 6px solid #764ba2;
+    padding: 20px 24px;
+    margin-bottom: 40px;
+    border-radius: 8px;
+    font-style: italic;
+    color: #6a5d8c;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #5e3ca9;
+    font-size: 0.95rem;
+  }
+
+  input[type="text"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 2px solid #d8d8e4;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #4a3f7a;
+    margin-bottom: 28px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    resize: vertical;
+  }
+
+  input[type="text"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #764ba2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(118,75,162,0.4);
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  button {
+    width: 100%;
+    background-color: #764ba2;
+    border: none;
+    border-radius: 16px;
+    padding: 18px 0;
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: white;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    box-shadow: 0 8px 25px rgba(118,75,162,0.3);
+    transition: background-color 0.4s ease;
+  }
+
+  button:hover {
+    background-color: #5e3ca9;
+  }
+
+  footer {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #aaa3c8;
+    font-style: italic;
+  }
+
+</style>
+</head>
+<body>
+  <main class="container" role="main" aria-label="Formulir laporan SAMP">
+    <h1>Laporkan Bug, Player, atau Admin Server</h1>
+    <section class="catalogue-info" aria-live="polite">
+      Silakan gunakan formulir ini untuk melaporkan bug, player bermasalah, atau admin yang Abuse di server Garuda Nusantara. Isikan  dengan lengkap agar laporan dapat kami tindak lanjuti.
+    </section>
+    <form id="reportForm" aria-describedby="form-desc" novalidate>
+      <label for="name">Nama Anda</label>
+      <input type="text" id="name" name="name" placeholder="Contoh: Bently Leopard" required maxlength="50" autocomplete="name" />
+
+      <label for="target">Nama Player/Admin/Bug yang Dilaporkan</label>
+      <input type="text" id="target" name="target" placeholder="Nama player atau admin" required maxlength="50" autocomplete="off" />
+
+      <label for="reportType">Tipe Laporan</label>
+      <select id="reportType" name="reportType" required aria-required="true" aria-describedby="reportTypeHelp">
+        <option value="" disabled selected>Pilih tipe laporan</option>
+        <option value="Bug">Bug</option>
+        <option value="Laporan Player">Laporan Player</option>
+        <option value="Laporan Admin">Laporan Admin</option>
+      </select>
+
+      <label for="details">Deskripsi Laporan</label>
+      <textarea id="details" name="details" rows="5" placeholder="Jelaskan detil bug/permasalahan..." required maxlength="500"></textarea>
+
+      <button type="submit" aria-label="Kirim laporan ke WhatsApp">Kirim Laporan</button>
+    </form>
+    <footer>© 2025 Sistem Laporan Server Garuda Bently Handle&mdash; All Rights Reserved</footer>
+  </main>
+<script>
+  (function() {
+    const form = document.getElementById('reportForm');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const name = this.name.value.trim();
+      const target = this.target.value.trim();
+      const reportType = this.reportType.value;
+      const details = this.details.value.trim();
+
+      if (!name || !target || !reportType || !details) {
+        alert('Mohon lengkapi semua field sebelum mengirim laporan.');
+        return;
+      }
+
+      // WhatsApp number to receive the reports (replace with your actual number, no "+" sign)
+      const waNumber = '6285717149980';
+
+      // Compose the message text with newline characters
+      const messageLines = [
+        '*Laporan Garuda Rp*',
+        `Nama Pelapor: ${name}`,
+        `Nama Player/Admin: ${target}`,
+        `Tipe Laporan: ${reportType}`,
+        'Detail Laporan:',
+        details
+      ];
+
+      const message = messageLines.join('\n');
+
+      // Construct WhatsApp URL encoded link
+      const encodedMessage = encodeURIComponent(message);
+      const waUrl = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+
+      // Redirect the user to WhatsApp
+      window.location.href = waUrl;
+    });
+  })();
+</script>
+</body>
+</html>
+

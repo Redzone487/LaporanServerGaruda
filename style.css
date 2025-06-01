@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset and base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: 'Poppins', sans-serif;
+  color: #3a3053;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.container {
+  background: #fff;
+  max-width: 520px;
+  width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 25px 40px rgba(50,50,93,.1), 0 10px 20px rgba(0,0,0,.07);
+  padding: 48px 36px 56px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: #5e3ca9;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+}
+
+.catalogue-info {
+  background: #f7f5fb;
+  border-left: 6px solid #764ba2;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #6a5d8c;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #5e3ca9;
+  font-size: 0.95rem;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 2px solid #d8d8e4;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #4a3f7a;
+  margin-bottom: 28px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+select:focus,
+textarea:focus {
+  border-color: #764ba2;
+  outline: none;
+  box-shadow: 0 0 8px rgba(118,75,162,0.4);
+}
+
+select {
+  cursor: pointer;
+}
+
+button {
+  width: 100%;
+  background-color: #764ba2;
+  border: none;
+  border-radius: 16px;
+  padding: 18px 0;
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 25px rgba(118,75,162,0.3);
+  transition: background-color 0.4s ease;
+}
+
+button:hover {
+  background-color: #5e3ca9;
+}
+
+footer {
+  margin-top: 28px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa3c8;
+  font-style: italic;
+}
+
